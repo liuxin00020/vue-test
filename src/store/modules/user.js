@@ -50,7 +50,7 @@ const actions = {
       commit("SET_NAME", null);
       commit("SET_AVATER", null);
       commit("SET_ROLE", null);
-      commit("SET_token", null);
+      commit("SET_TOKEN", null);
       removeAccessToken();
       return true;
     });

@@ -1,0 +1,23 @@
+@import "./paddingMargin";
+* {
+  box-sizing: border-box;
+}
+
+.font-white{
+  color:$white;
+}
+.font-primary{
+  color:$primary;
+}
+.font-base{
+  color:$text-color;
+}
+.font16{
+  font-size:$font-size;
+}
+.hover{
+  &:hover{
+    opacity: .8;
+  }
+}
+

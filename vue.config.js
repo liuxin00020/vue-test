@@ -20,8 +20,8 @@ module.exports = {
         lessOptions: {
           // 所有变量https://github.com/vueComponent/ant-design-vue/blob/master/components/style/themes/default.less
           modifyVars: {
-            "primary-color": "#1DA57A",
-            "link-color": "#1DA57A",
+            "primary-color": "#5c9944",
+            "link-color": "#5c9944",
             "border-radius-base": "2px"
           },
           javascriptEnabled: true // 这句话必须要，否则不起效

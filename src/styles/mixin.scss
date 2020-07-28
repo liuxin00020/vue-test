@@ -10,9 +10,13 @@
 
 /* 清除浮动 */
 @mixin clearfix {
-    &:after {
-        content: "";
+    zoom: 1;
+    &::before,
+    &::after {
         display: table;
+        content: "";
+    }
+    &::after {
         clear: both;
     }
 }
@@ -105,7 +109,7 @@
 }
 
 /* 定义滚动条样式 圆角和阴影不需要则传入null */
-@mixin scrollBar($width: 6px, $height: 10px, $outColor: #04221E, $innerColor: #25847B, $radius: 3px, $shadow: null) {
+@mixin scrollBar($width: 6px, $height: 10px, $outColor: #04221e, $innerColor: #25847b, $radius: 3px, $shadow: null) {
     /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
     &::-webkit-scrollbar {
         width: $width;
@@ -175,8 +179,29 @@
     background: $bg;
 }
 
+/* placeholder */
+@mixin placeholder($color: #bbb) {
+    // Firefox
+    &::-moz-placeholder {
+      color: $color;
+      opacity: 1; 
+    }
+    // Internet Explorer 10+
+    &:-ms-input-placeholder {
+      color: $color;
+    }
+    // Safari and Chrome
+    &::-webkit-input-placeholder {
+      color: $color;
+    }
+  
+    &:placeholder-shown {
+      text-overflow: ellipsis;
+    }
+  }
+
 /* 绘制边角 */
-@mixin rectAngel($angelWidth: 3px, $top: 0px,$angeloffset:-4px) {
+@mixin rectAngel($angelWidth: 3px, $top: 0px, $angeloffset: -4px) {
     display: block;
     width: 30px;
     height: 30px;

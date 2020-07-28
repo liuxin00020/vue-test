@@ -1,7 +1,7 @@
 import Vue from "vue";
 import { getAccessToken } from "@/util/auth";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import BaseLayout from "../layouts/BaseLayout.vue";
 
 Vue.use(VueRouter);
 
@@ -16,22 +16,25 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home,
-    meta: { title: "首页" }
-  },
-  {
-    path: "/ant",
-    name: "Ant",
-    component: () =>
-      import(/* webpackChunkName: "Ant" */ "@/views/ant/index.vue"),
-    meta: { title: "UI组件" }
-  },
-  {
-    path: "/echarts",
-    name: "Echarts",
-    component: () =>
-      import(/* webpackChunkName: "Echarts" */ "@/views/echarts/index.vue"),
-    meta: { title: "图表" }
+    component: BaseLayout,
+    meta: { title: "首页" },
+    redirect: "/ant",
+    children: [
+      {
+        path: "/ant",
+        name: "Ant",
+        component: () =>
+          import(/* webpackChunkName: "Ant" */ "@/views/ant/index.vue"),
+        meta: { title: "UI组件" }
+      },
+      {
+        path: "/echarts",
+        name: "Echarts",
+        component: () =>
+          import(/* webpackChunkName: "Echarts" */ "@/views/echarts/index.vue"),
+        meta: { title: "图表" }
+      }
+    ]
   }
 ];
 

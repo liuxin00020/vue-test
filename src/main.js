@@ -2,19 +2,18 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import IconFont from "./components/IconFont";
+
 // 引入antD，已使用babel-plugin-import，无需引入css
 import "@/util/cusImportAntd";
-
-// 引入axios
-// import request from "@/util/requset";
-// import VueAxios from "vue-axios";
-// Vue.use(VueAxios, request);
+import "./styles/index.scss";
 
 // 引入mocks
-// if (process.env.NODE_ENV === "development") {
-// }
+if (process.env.NODE_ENV === "development") {
+  require("../mock");
+}
 
-import "@/mock/index.js";
+Vue.use(IconFont);
 
 Vue.config.productionTip = false;
 
