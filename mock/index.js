@@ -2,8 +2,9 @@ import { formatUrlParam } from "@/util/index";
 import Mock from "mockjs";
 
 import user from "./user";
+import charts from "./charts";
 
-const mocks = [...user];
+const mocks = [...user, ...charts];
 
 // 设置拦截ajax请求的相应时间
 Mock.setup({

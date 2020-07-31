@@ -31,9 +31,10 @@ export function logout() {
 /**
  * 获取账号信息
  */
-export function getUserInfo() {
+export function getUserInfo(token) {
   return request({
     url: _USERAPI.getInfo,
-    method: "get"
+    method: "get",
+    params: { token }
   });
 }

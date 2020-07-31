@@ -1,8 +1,13 @@
 <template>
-  <a-menu theme="dark" mode="inline" :default-selected-keys="['ant']">
+  <a-menu
+    theme="dark"
+    mode="inline"
+    :selectedKeys="[$route.name]"
+    @select="changeMenu"
+  >
     <a-menu-item v-for="item in menu" :key="item.key">
-      <icon-font :type="item.icon" class="menu-icon"></icon-font>
-      <span class="common-pl-mn">{{ item.title }}</span>
+      <icon-font :type="item.icon" class="anticon"></icon-font>
+      <span>{{ item.title }}</span>
     </a-menu-item>
   </a-menu>
 </template>
@@ -10,6 +15,7 @@
 export default {
   data() {
     return {
+      // currentKey:
       menu: [
         {
           title: "ant",
@@ -23,12 +29,16 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    changeMenu(e) {
+      // 当前路由是选中的路由，则不跳转
+      if (this.$route.name === e.key) {
+        return;
+      }
+      this.$router.push({ name: e.key });
+    }
   }
 };
 </script>
-<style lang="scss" scoped>
-.menu-icon {
-  font-size: $font-size;
-  vertical-align: middle;
-}
-</style>
+<style lang="scss" scoped></style>

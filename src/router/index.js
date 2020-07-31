@@ -1,14 +1,14 @@
 import Vue from "vue";
 import { getAccessToken } from "@/util/auth";
 import VueRouter from "vue-router";
-import BaseLayout from "../layouts/BaseLayout.vue";
+import BaseLayout from "@/layouts/BaseLayout.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/login",
-    name: "Login",
+    name: "login",
     component: () =>
       import(/* webpackChunkName: "Echarts" */ "@/views/login/index.vue"),
     meta: { title: "登录" }
@@ -22,14 +22,14 @@ const routes = [
     children: [
       {
         path: "/ant",
-        name: "Ant",
+        name: "ant",
         component: () =>
           import(/* webpackChunkName: "Ant" */ "@/views/ant/index.vue"),
         meta: { title: "UI组件" }
       },
       {
         path: "/echarts",
-        name: "Echarts",
+        name: "echarts",
         component: () =>
           import(/* webpackChunkName: "Echarts" */ "@/views/echarts/index.vue"),
         meta: { title: "图表" }
@@ -65,7 +65,7 @@ router.beforeEach((to, from, next) => {
     if (to.path === "/login") {
       next();
     } else {
-      next({ name: "Login", params: { redirect: to.path } });
+      next({ name: "login", params: { redirect: to.path } });
     }
   }
 });
